@@ -17,7 +17,7 @@ const createTopicScheme = zod.object({
     }),
   description: zod.string().min(10),
 });
-``;
+
 export interface CreateTopicFormStateType {
   fieldErros: {
     name?: string[];
@@ -27,7 +27,7 @@ export interface CreateTopicFormStateType {
 }
 
 export async function createTopic(
-  formState: CreateTopicFormStateType,
+  _formState: CreateTopicFormStateType,
   formData: FormData,
 ): Promise<CreateTopicFormStateType> {
   const result = createTopicScheme.safeParse({
@@ -40,6 +40,7 @@ export async function createTopic(
   }
 
   const session = await auth();
+
   if (!session?.user) {
     return {
       fieldErros: {},
@@ -48,6 +49,7 @@ export async function createTopic(
   }
 
   let topic: Topic;
+
   try {
     topic = await db.topic.create({
       data: {

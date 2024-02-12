@@ -2,6 +2,7 @@
 
 import { useFormState } from "react-dom";
 import { createTopic } from "@/server";
+import FormButton from "./form-button";
 
 export default function TopicCreateForm() {
   const [formState, action] = useFormState(createTopic, {
@@ -9,14 +10,14 @@ export default function TopicCreateForm() {
   });
 
   return (
-    <div className="popover">
+    <div className="popover w-full">
       <button
-        className="btn btn-solid-primary popover-trigger mx-2"
+        className="btn btn-solid-primary popover-trigger mx-auto block"
         tabIndex={0}
       >
         New Topic
       </button>
-      <div className="popover-content  popover-left-bottom w-80" tabIndex={0}>
+      <div className="popover-content popover-left-bottom w-80" tabIndex={0}>
         <div className="popover-arrow"></div>
         <form
           action={action}
@@ -58,9 +59,7 @@ export default function TopicCreateForm() {
               )}
             </div>
             <div className="form-field pt-5">
-              <button type="submit" className="btn btn-primary w-full">
-                Submit
-              </button>
+              <FormButton>Submit</FormButton>
             </div>
             {!!formState.formErros && (
               <label className="form-label">
