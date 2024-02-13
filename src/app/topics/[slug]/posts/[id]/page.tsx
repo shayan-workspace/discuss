@@ -24,7 +24,7 @@ export default async function PostShowPage({ params }: PostShowPageProps) {
   return (
     <>
       <section className="px-8 py-8 lg:px-12">
-        <div className="breadcrumbs mb-4 text-sm">
+        <div className="breadcrumbs mb-4 flex-wrap overflow-hidden text-sm">
           <ul>
             <li>
               <Link href={paths.home()}>Home</Link>
