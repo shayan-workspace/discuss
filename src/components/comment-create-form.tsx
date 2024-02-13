@@ -32,9 +32,7 @@ export default function CommentCreateForm({
     if (formState.success) {
       ref.current?.reset();
 
-      if (!initOpen) {
-        setOpen(false);
-      }
+      setOpen(false);
     }
   }, [formState.success, initOpen]);
 

@@ -13,11 +13,11 @@ export default function Header() {
             Discuss
           </Link>
         </div>
-        <div className="navbar-center">
+        {/* <div className="navbar-center">
           <form>
             <input className="input input-ghost-primary" placeholder="Search" />
           </form>
-        </div>
+        </div> */}
         <div className="navbar-end">
           <HeaderAuth />
         </div>

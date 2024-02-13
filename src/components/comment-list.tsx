@@ -16,8 +16,8 @@ export default async function CommentList({ post }: CommentListProps) {
   );
 
   return (
-    <div className="space-y-3">
-      <h1 className="text-lg font-bold">All {comments.length} comments</h1>
+    <div>
+      <h3>Comments</h3>
       {topLevelComments.map((comment) => {
         return (
           <CommentShow

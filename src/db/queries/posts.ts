@@ -23,3 +23,30 @@ export function fetchPostByTopicSlug(
     },
   });
 }
+
+export function fetchTopPosts(): Promise<EnrichedPostType[]> {
+  return db.post.findMany({
+    orderBy: [{ comments: { _count: "desc" } }],
+    include: {
+      topic: { select: { slug: true } },
+      user: { select: { name: true, image: true } },
+      _count: { select: { comments: true } },
+    },
+    take: 5,
+  });
+}
+
+export function fetchPostsBySearchTerm(
+  term: string,
+): Promise<EnrichedPostType[]> {
+  return db.post.findMany({
+    include: {
+      topic: { select: { slug: true } },
+      user: { select: { name: true, image: true } },
+      _count: { select: { comments: true } },
+    },
+    where: {
+      OR: [{ title: { contains: term } }, { content: { contains: term } }],
+    },
+  });
+}

@@ -24,35 +24,35 @@ export default async function CommentShow({
   const childComments = comments.filter((item) => item.parentId === commentId);
 
   return (
-    <div className="mb-1 mt-2 border p-4">
-      <div className="flex gap-3">
-        <Image
-          src={comment.user.image || ""}
-          alt="user image"
-          width={40}
-          height={40}
-          className="h-10 w-10 rounded-full"
-        />
-        <div className="flex-1 space-y-3">
-          <p className="text-sm font-medium text-gray-500">
-            {comment.user.name}
-          </p>
-          <p className="text-gray-900">{comment.message}</p>
+    <div className="card my-4 w-full max-w-full shadow-xl drop-shadow-xl">
+      <div className="card-body pb-1">
+        <div className="card-header justify-normal gap-4">
+          <Image
+            src={comment.user.image || ""}
+            alt="user image"
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-full"
+          />
+          <h4>{comment.user.name}</h4>
+        </div>
+        <p className="text-content2">{comment.message}</p>
 
+        <div className="card-footer flex-col items-stretch gap-4">
           <CommentCreateForm topic={topic} post={post} parent={comment} />
         </div>
-      </div>
-      <div className="pl-4">
-        {childComments.map((child) => {
-          return (
-            <CommentShow
-              key={child.id}
-              topic={topic}
-              post={post}
-              commentId={child.id}
-            />
-          );
-        })}
+        <div className="pl-4">
+          {childComments.map((child) => {
+            return (
+              <CommentShow
+                key={child.id}
+                topic={topic}
+                commentId={child.id}
+                post={post}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
