@@ -62,7 +62,7 @@ export default function TopicCreateForm() {
                 )}
               </div>
               <div className="form-field pt-5">
-                <FormButton>Submit</FormButton>
+                <FormButton className="w-full">Submit</FormButton>
               </div>
               {!!formState.formErros && (
                 <label className="form-label">

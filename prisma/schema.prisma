@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -81,7 +81,7 @@ model Post {
 
 model Comment {
   id       String  @id @default(cuid())
-  content  String
+  message  String
   postId   String
   userId   String
   parentId String?

@@ -1,5 +1,8 @@
-import { PostCreateForm, TopicList } from "@/components";
+import { PostCreateForm, PostList } from "@/components";
 import { db } from "@/db";
+import { fetchPostByTopicSlug } from "@/db/queries/posts";
+import { paths } from "@/utils/paths";
+import Link from "next/link";
 
 export interface TopicShowPageProps {
   params: {
@@ -15,11 +18,21 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
 
   return (
     <>
-      <section className="grid grid-cols-4 gap-4 p-12">
-        <div className="col-span-3">
-          <h2 className="mb-2 text-2xl font-bold">{slug}</h2>
+      <section className="flex items-start gap-4 p-12">
+        <div className="w-3/4">
+          <div className="breadcrumbs text-sm">
+            <ul>
+              <li>
+                <Link href={paths.home()}>Home</Link>
+              </li>
+              <li>
+                <Link href={paths.topicShow(slug)}>{slug}</Link>
+              </li>
+            </ul>
+          </div>
+          <PostList fetchData={() => fetchPostByTopicSlug(slug)} />
         </div>
-        <div className="card col-span-1">
+        <div className="card w-1/4">
           <div className="card-body">
             <h3 className="card-header">{slug}</h3>
             <p className="text-content2">{topic?.description}</p>

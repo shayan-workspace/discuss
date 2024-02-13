@@ -5,11 +5,11 @@ import { useFormState } from "react-dom";
 import { createPost } from "@/server";
 import { FormButton } from "@/components";
 
-export interface TopicCreateFormProps {
+export interface PostCreateFormProps {
   topic: Topic;
 }
 
-export default function TopicCreateForm({ topic }: TopicCreateFormProps) {
+export default function PostCreateForm({ topic }: PostCreateFormProps) {
   const [formState, action] = useFormState(createPost.bind(null, topic), {
     fieldErros: {},
   });
@@ -74,7 +74,7 @@ export default function TopicCreateForm({ topic }: TopicCreateFormProps) {
                 )}
               </div>
               <div className="form-field pt-5">
-                <FormButton>Submit</FormButton>
+                <FormButton className="w-full">Submit</FormButton>
               </div>
               {!!formState.formErros && (
                 <label className="form-label">
