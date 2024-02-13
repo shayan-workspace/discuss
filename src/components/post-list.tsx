@@ -10,12 +10,12 @@ export default async function PostList({ fetchData }: PostListProps) {
   const posts = await fetchData();
 
   return (
-    <ul className="m-4 flex flex-wrap gap-4">
+    <ul className="flex flex-wrap gap-4">
       {posts.map((post) => {
         return (
           <li key={post.id}>
             <Link href={paths.postShow(post.topic.slug, post.id)}>
-              <div className="card min-w-96">
+              <div className="card lg:min-w-96">
                 <div className="card-body">
                   <h2 className="card-header">{post.title}</h2>
 

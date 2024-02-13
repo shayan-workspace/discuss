@@ -13,7 +13,7 @@ export default function HomePage() {
           <div className="card-body">
             <h3 className="card-header">Topics</h3>
             <TopicList />
-            <div className="divider"></div>
+            <div className="divider my-0.5"></div>
             <div className="card-footer">
               <TopicCreateForm />
             </div>

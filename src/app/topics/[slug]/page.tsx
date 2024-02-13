@@ -37,7 +37,7 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
             <div className="card-body">
               <h3 className="card-header">{slug}</h3>
               <p className="text-content2">{topic?.description}</p>
-              <div className="divider"></div>
+              <div className="divider my-0.5"></div>
               <div className="card-footer">
                 <PostCreateForm topic={topic} />
               </div>
