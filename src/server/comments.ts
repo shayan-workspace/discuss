@@ -60,6 +60,7 @@ export async function createComment(
     }
   }
 
+  revalidatePath(paths.home());
   revalidatePath(paths.postShow(topic.slug, comment.id));
   return { fieldErros: {}, success: true };
 }
