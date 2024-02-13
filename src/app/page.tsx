@@ -4,7 +4,7 @@ import { fetchTopPosts } from "@/db/queries/posts";
 export default function HomePage() {
   return (
     <>
-      <section className="flex flex-col-reverse items-center gap-4 px-12 py-8 lg:flex-row lg:items-start">
+      <section className="flex flex-col-reverse items-center gap-4 px-8 py-8 lg:flex-row lg:items-start lg:px-12">
         <div className="lg:w-3/4">
           <h2 className="m-2 text-xl font-semibold">Top Posts</h2>
           <PostList fetchData={fetchTopPosts} />
