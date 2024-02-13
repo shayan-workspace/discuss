@@ -3,6 +3,7 @@ import { db } from "@/db";
 import { fetchPostByTopicSlug } from "@/db/queries/posts";
 import { paths } from "@/utils/paths";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export interface TopicShowPageProps {
   params: {
@@ -14,7 +15,9 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
   const { slug } = params;
   const topic = await db.topic.findUnique({ where: { slug } });
 
-  if (!topic) return null;
+  if (!topic) {
+    notFound();
+  }
 
   return (
     <>
