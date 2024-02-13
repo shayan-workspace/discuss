@@ -25,7 +25,7 @@ export default async function CommentShow({
 
   return (
     <div className="card my-4 w-full max-w-full border dark:border-gray-900">
-      <div className="card-body pb-1">
+      <div className="card-body p-2 pb-1 lg:p-8">
         <div className="card-header justify-normal gap-4">
           <Image
             src={comment.user.image || ""}
@@ -41,7 +41,7 @@ export default async function CommentShow({
         <div className="card-footer flex-col items-stretch gap-4">
           <CommentCreateForm topic={topic} post={post} parent={comment} />
         </div>
-        <div className="pl-4">
+        <div className="pl-2 lg:pl-4">
           {childComments.map((child) => {
             return (
               <CommentShow
