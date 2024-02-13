@@ -18,27 +18,29 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
 
   return (
     <>
-      <section className="flex items-start gap-4 p-12">
-        <div className="w-3/4">
-          <div className="breadcrumbs text-sm">
-            <ul>
-              <li>
-                <Link href={paths.home()}>Home</Link>
-              </li>
-              <li>
-                <Link href={paths.topicShow(slug)}>{slug}</Link>
-              </li>
-            </ul>
-          </div>
-          <PostList fetchData={() => fetchPostByTopicSlug(slug)} />
+      <section className="px-12 py-8">
+        <div className="breadcrumbs mb-4 text-sm">
+          <ul>
+            <li>
+              <Link href={paths.home()}>Home</Link>
+            </li>
+            <li>
+              <Link href={paths.topicShow(slug)}>{slug}</Link>
+            </li>
+          </ul>
         </div>
-        <div className="card w-1/4">
-          <div className="card-body">
-            <h3 className="card-header">{slug}</h3>
-            <p className="text-content2">{topic?.description}</p>
-            <div className="divider"></div>
-            <div className="card-footer">
-              <PostCreateForm topic={topic} />
+        <div className="flex flex-col-reverse items-center gap-4 lg:flex-row lg:items-start">
+          <div className="lg:w-3/4">
+            <PostList fetchData={() => fetchPostByTopicSlug(slug)} />
+          </div>
+          <div className="card w-full max-w-full lg:w-1/4">
+            <div className="card-body">
+              <h3 className="card-header">{slug}</h3>
+              <p className="text-content2">{topic?.description}</p>
+              <div className="divider"></div>
+              <div className="card-footer">
+                <PostCreateForm topic={topic} />
+              </div>
             </div>
           </div>
         </div>

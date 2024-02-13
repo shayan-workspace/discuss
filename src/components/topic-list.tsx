@@ -8,7 +8,7 @@ export default async function TopicList() {
   return (
     <ul className="flex flex-wrap gap-2">
       {topics.map((topic) => (
-        <li key={topic.id} className="badge badge-flat-warning">
+        <li key={topic.id} className="badge badge-warning">
           <Link href={paths.topicShow(topic.slug)}>{topic.slug}</Link>
         </li>
       ))}

@@ -19,7 +19,7 @@ export default async function PostList({ fetchData }: PostListProps) {
                 <div className="card-body">
                   <h2 className="card-header">{post.title}</h2>
 
-                  <div className="card-footer gap-4 text-sm text-gray-300">
+                  <div className="card-footer gap-4 text-sm">
                     <span>By {post.user.name}</span>
                     <span>{post._count.comments} Comments</span>
                   </div>

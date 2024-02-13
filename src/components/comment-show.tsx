@@ -24,7 +24,7 @@ export default async function CommentShow({
   const childComments = comments.filter((item) => item.parentId === commentId);
 
   return (
-    <div className="card my-4 w-full max-w-full shadow-xl drop-shadow-xl">
+    <div className="card my-4 w-full max-w-full border dark:border-gray-900">
       <div className="card-body pb-1">
         <div className="card-header justify-normal gap-4">
           <Image

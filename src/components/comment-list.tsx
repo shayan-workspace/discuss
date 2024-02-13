@@ -16,18 +16,14 @@ export default async function CommentList({ post }: CommentListProps) {
   );
 
   return (
-    <div>
-      <h3>Comments</h3>
+    <ul>
       {topLevelComments.map((comment) => {
         return (
-          <CommentShow
-            key={comment.id}
-            topic={topic!}
-            post={post}
-            commentId={comment.id}
-          />
+          <li key={comment.id}>
+            <CommentShow topic={topic!} post={post} commentId={comment.id} />
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
